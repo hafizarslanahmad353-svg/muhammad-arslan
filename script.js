@@ -49,21 +49,24 @@ const barObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.skill-bar-fill').forEach(el => barObserver.observe(el));
 
 // ---------- Web Development projects ----------
+// To add a real screenshot for any project: save the image inside the assets
+// folder and add an "img" property with its path, e.g. img: 'assets/tracking-me.jpg'
+// Projects without an "img" property will keep showing the styled placeholder.
 const webdevProjects = [
-  { name: 'Tracking.me', url: 'https://www.tracking.me/', desc: 'Shipment tracking platform website.', tag: 'Website' },
-  { name: 'Livixa AI', url: 'https://livixa.ai/', desc: 'AI-powered product website.', tag: 'Website' },
-  { name: 'Umrah Rafeeqi', url: 'https://umrah.rafeeqi.com/', desc: 'Umrah services booking website.', tag: 'Website' },
-  { name: 'Facility Apps', url: 'https://www.facilityapps.com/', desc: 'Facility management software website.', tag: 'Website' },
-  { name: 'Genx Aminos', url: 'https://genxaminos.com/', desc: 'Supplement brand website.', tag: 'Website' },
-  { name: 'Pure Medical Spa', url: 'https://puremedicalspaidaho.com/', desc: 'Med spa & aesthetics clinic website.', tag: 'Website' },
-  { name: 'Newage Cables', url: 'https://newagecables.com/', desc: 'Cable manufacturing company website.', tag: 'Website' },
-  { name: 'Haven Compliance', url: 'https://havencompliance.com.au/', desc: 'Window safety compliance company website.', tag: 'Website' },
-  { name: 'Murcot Auto', url: 'https://blanchedalmond-chamois-946816.hostingersite.com/', desc: 'Vehicle purchase & trade-in website.', tag: 'Website', pending: true },
-  { name: 'Qareeb', url: 'https://qareeb.com/', desc: 'Shopify store.', tag: 'Shopify' },
-  { name: 'Surmer', url: 'https://surmer.com/', desc: 'Shopify store.', tag: 'Shopify' },
-  { name: 'Soap Sage', url: 'https://soapsage.pk/', desc: 'Shopify store.', tag: 'Shopify' },
-  { name: 'Luxe Auto Spa', url: 'https://luxeautospa.pk/', desc: 'Shopify store.', tag: 'Shopify' },
-  { name: 'CNC Electric', url: 'https://www.cncelectric.pk/', desc: 'Shopify store.', tag: 'Shopify' },
+  { name: 'Tracking.me', url: 'https://www.tracking.me/', desc: 'Shipment tracking platform website.', tag: 'Website', img: '' },
+  { name: 'Livixa AI', url: 'https://livixa.ai/', desc: 'AI-powered product website.', tag: 'Website', img: '' },
+  { name: 'Umrah Rafeeqi', url: 'https://umrah.rafeeqi.com/', desc: 'Umrah services booking website.', tag: 'Website', img: '' },
+  { name: 'Facility Apps', url: 'https://www.facilityapps.com/', desc: 'Facility management software website.', tag: 'Website', img: '' },
+  { name: 'Genx Aminos', url: 'https://genxaminos.com/', desc: 'Supplement brand website.', tag: 'Website', img: '' },
+  { name: 'Pure Medical Spa', url: 'https://puremedicalspaidaho.com/', desc: 'Med spa & aesthetics clinic website.', tag: 'Website', img: '' },
+  { name: 'Newage Cables', url: 'https://newagecables.com/', desc: 'Cable manufacturing company website.', tag: 'Website', img: '' },
+  { name: 'Haven Compliance', url: 'https://havencompliance.com.au/', desc: 'Window safety compliance company website.', tag: 'Website', img: '' },
+  { name: 'Murcot Auto', url: 'https://blanchedalmond-chamois-946816.hostingersite.com/', desc: 'Vehicle purchase & trade-in website.', tag: 'Website', pending: true, img: '' },
+  { name: 'Qareeb', url: 'https://qareeb.com/', desc: 'Shopify store.', tag: 'Shopify', img: '' },
+  { name: 'Surmer', url: 'https://surmer.com/', desc: 'Shopify store.', tag: 'Shopify', img: '' },
+  { name: 'Soap Sage', url: 'https://soapsage.pk/', desc: 'Shopify store.', tag: 'Shopify', img: '' },
+  { name: 'Luxe Auto Spa', url: 'https://luxeautospa.pk/', desc: 'Shopify store.', tag: 'Shopify', img: '' },
+  { name: 'CNC Electric', url: 'https://www.cncelectric.pk/', desc: 'Shopify store.', tag: 'Shopify', img: '' },
 ];
 
 const webdevGrid = document.getElementById('webdevGrid');
@@ -71,12 +74,15 @@ webdevProjects.forEach(p => {
   const domain = p.url.replace(/^https?:\/\//, '').replace(/\/$/, '');
   const card = document.createElement('div');
   card.className = 'project-card';
+  const thumbHtml = p.img
+    ? `<img src="${p.img}" alt="${p.name} screenshot">`
+    : `<div class="thumb-browser">
+         <div class="thumb-browser-bar"><span></span><span></span><span></span></div>
+         <div class="thumb-browser-body">${p.name}</div>
+       </div>`;
   card.innerHTML = `
     <div class="project-thumb">
-      <div class="thumb-browser">
-        <div class="thumb-browser-bar"><span></span><span></span><span></span></div>
-        <div class="thumb-browser-body">${p.name}</div>
-      </div>
+      ${thumbHtml}
     </div>
     <div class="project-body">
       <div class="project-badges">
