@@ -54,7 +54,7 @@ document.querySelectorAll('.skill-bar-fill').forEach(el => barObserver.observe(e
 // Projects without an "img" property will keep showing the styled placeholder.
 const webdevProjects = [
   { name: 'Tracking.me', url: 'https://www.tracking.me/', desc: 'Shipment tracking platform website.', tag: 'Website', img: 'assets/tracking-me.jpg' },
-  { name: 'Livixa AI', url: 'https://livixa.ai/', desc: 'AI-powered product website.', tag: 'Website', img: '' },
+  { name: 'Livixa AI', url: 'https://livixa.ai/', desc: 'AI-powered product website.', tag: 'Website', img: 'assets/livixa-ai.jpg' },
   { name: 'Umrah Rafeeqi', url: 'https://umrah.rafeeqi.com/', desc: 'Umrah services booking website.', tag: 'Website', img: '' },
   { name: 'Facility Apps', url: 'https://www.facilityapps.com/', desc: 'Facility management software website.', tag: 'Website', img: '' },
   { name: 'Genx Aminos', url: 'https://genxaminos.com/', desc: 'Supplement brand website.', tag: 'Website', img: '' },
